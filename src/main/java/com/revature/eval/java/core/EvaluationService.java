@@ -33,6 +33,8 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		return null;
 	}
+	
+	
 
 	/**
 	 * 3. Determine if a triangle is equilateral, isosceles, or scalene. An
@@ -84,8 +86,16 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (sideOne == sideTwo && sideTwo == sideThree) 
+			{
+				return true;
+			}
+			else 
+			{ 
+				return false;
+			}
+			
+			
 		}
 
 		public boolean isIsosceles() {
@@ -115,10 +125,61 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-	public int getScrabbleScore(String string) {
+	public int getScrabbleScore(String string) 
+	{
 		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		int total = 0;
+		char[] temp = string.toUpperCase().toCharArray();
+		
+		for(int i= 0; i < string.length(); i++) 
+		{
+			if(temp[i] == 'A'||temp[i]=='E'||temp[i]=='I'||temp[i]=='O'||temp[i]=='U'
+					||temp[i]=='L'||temp[i]=='N'||temp[i]=='R'||temp[i]=='S'
+					||temp[i]=='T') 
+		    {
+				total += 1;
+		    }
+		
+		else if(temp[i] == 'J'||temp[i] == 'X') 
+		{
+			total += 8;
+		}
+		
+		else if(temp[i] == 'D'||temp[i] == 'G') 
+		{
+			total += 2;
+		}
+		
+		else if(temp[i] == 'B'||temp[i] == 'C'||temp[i] == 'M'||temp[i] == 'P') 
+		{
+			total += 3;
+		}
+		
+		else if(temp[i] == 'F'||temp[i] == 'H'||temp[i] == 'V'||temp[i] == 'W'||temp[i] == 'Y') 
+		{
+			total += 4;
+		}
+		
+		else if(temp[i] == 'K') 
+		{
+			total += 5;
+		}
+		
+		else if(temp[i] == 'Q'||temp[i] == 'Z') 
+		{
+			total += 10;
+		}
+		
+		else 
+		{
+			System.out.println("That is not a letter");
+		}
+		}
+		return total;
 	}
+	
+	
 
 	/**
 	 * 5. Clean up user-entered phone numbers so that they can be sent SMS messages.
@@ -155,6 +216,8 @@ public class EvaluationService {
 		// TODO Write an implementation for this method declaration
 		return null;
 	}
+	
+	
 
 	/**
 	 * 6. Given a phrase, count the occurrences of each word in that phrase.
@@ -165,9 +228,65 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
-	public Map<String, Integer> wordCount(String string) {
+	public Map<String, Integer> wordCount(String string) 
+	{
 		// TODO Write an implementation for this method declaration
-		return null;
+
+	/**
+	 * Counts the word in a given string. Ignores any punctuation.
+	 * Example:
+	 *    "one two, two# ??three" === {"one": 1, "two": 2, "three": 1}
+	 */
+	
+	public class wordCount 
+	{
+	  private final Map<String, Integer> wordFrequencyMap;
+
+	  wordCount() 
+	  {
+	    wordFrequencyMap = new HashMap<>();
+	  }
+
+	  public Map<String, Integer> phrase(String phrase) 
+	  {
+	    for (String word : phrase.trim().split("\\s+")) 
+	    {
+	       word = withoutPunctuation(word.toLowerCase());
+	       if (word.isEmpty()) 
+	       {
+	    	   continue;
+	       }
+	      if (!wordFrequencyMap.containsKey(word)) {
+	        wordFrequencyMap.put(word, 1);
+	      } 
+	      else 
+	      {
+	        wordFrequencyMap.put(word, wordFrequencyMap.get(word) + 1);
+	      }
+	    }
+	    return wordFrequencyMap;
+	  }
+
+	  private String withoutPunctuation(String word) 
+	  {
+		  StringBuilder wordWithoutPunctuation = new StringBuilder();
+		    for (char ch : word.toCharArray()) 
+		    {
+		        if (isLetter(ch) || isDigit(ch)) 
+		        {
+		            wordWithoutPunctuation.append(ch);
+		        }
+		    }
+		    return wordWithoutPunctuation.toString();
+	  }
+
+	  private boolean isLetter(char ch) {
+	    return ch >= 'a' && ch <= 'z';
+	  }
+
+	  private boolean isDigit(char ch) {
+	    return ch >= '0' && ch <= '9';
+	  }
 	}
 
 	/**
@@ -247,8 +366,13 @@ public class EvaluationService {
 	 */
 	public String toPigLatin(String string) {
 		// TODO Write an implementation for this method declaration
+		
+		
+		
 		return null;
 	}
+	
+	
 
 	/**
 	 * 9. An Armstrong number is a number that is the sum of its own digits each
