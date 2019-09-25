@@ -782,7 +782,7 @@ public class EvaluationServiceTest {
 	 * Question 20
 	 ******************************************************************/
 	@Test
-	public void testSingleAddition1() 
+	public void testSingleAddition() 
 	{
 		assertEquals(2, evaluationService.solveWordProblem("What is 1 plus 1?"));
 	}
