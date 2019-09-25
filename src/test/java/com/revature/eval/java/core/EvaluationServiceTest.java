@@ -30,27 +30,32 @@ public class EvaluationServiceTest {
 	 * Question 1
 	 ******************************************************************/
 	@Test
-	public void testAnEmptyString() {
+	public void testAnEmptyString() 
+	{
 		assertEquals("", evaluationService.reverse(""));
 	}
 
 	@Test
-	public void testAWord() {
+	public void testAWord() 
+	{
 		assertEquals("tobor", evaluationService.reverse("robot"));
 	}
 
 	@Test
-	public void testACapitalizedWord() {
+	public void testACapitalizedWord() 
+	{
 		assertEquals("nemaR", evaluationService.reverse("Ramen"));
 	}
 
 	@Test
-	public void testASentenceWithPunctuation() {
+	public void testASentenceWithPunctuation() 
+	{
 		assertEquals("!yrgnuh m'I", evaluationService.reverse("I'm hungry!"));
 	}
 
 	@Test
-	public void testAPalindrome() {
+	public void testAPalindrome() 
+	{
 		assertEquals("racecar", evaluationService.reverse("racecar"));
 	}
 
@@ -58,28 +63,32 @@ public class EvaluationServiceTest {
 	 * Question 2
 	 ******************************************************************/
 	@Test
-	public void basic() {
+	public void basic() 
+	{
 		final String phrase = "Portable Network Graphics";
 		final String expected = "PNG";
 		assertEquals(expected, evaluationService.acronym(phrase));
 	}
 
 	@Test
-	public void punctuation() {
+	public void punctuation() 
+	{
 		final String phrase = "First In, First Out";
 		final String expected = "FIFO";
 		assertEquals(expected, evaluationService.acronym(phrase));
 	}
 
 	@Test
-	public void NonAcronymAllCapsWord() {
+	public void NonAcronymAllCapsWord() 
+	{
 		final String phrase = "GNU Image Manipulation Program";
 		final String expected = "GIMP";
 		assertEquals(expected, evaluationService.acronym(phrase));
 	}
 
 	@Test
-	public void punctuationWithoutWhitespace() {
+	public void punctuationWithoutWhitespace() 
+	{
 		final String phrase = "Complementary metal-oxide semiconductor";
 		final String expected = "CMOS";
 		assertEquals(expected, evaluationService.acronym(phrase));
@@ -90,37 +99,43 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 
 	@Test
-	public void trianglesWithNoEqualSidesAreNotEquilateral() {
+	public void trianglesWithNoEqualSidesAreNotEquilateral() 
+	{
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(5, 4, 6);
 		assertFalse(triangle.isEquilateral());
 	}
 
 	@Test
-	public void verySmallTrianglesCanBeEquilateral() {
+	public void verySmallTrianglesCanBeEquilateral() 
+	{
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(0.5, 0.5, 0.5);
 		assertTrue(triangle.isEquilateral());
 	}
 
 	@Test
-	public void isoscelesTrianglesMustHaveAtLeastTwoEqualSides() {
+	public void isoscelesTrianglesMustHaveAtLeastTwoEqualSides() 
+	{
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(2, 3, 4);
 		assertFalse(triangle.isIsosceles());
 	}
 
 	@Test
-	public void verySmallTrianglesCanBeIsosceles() {
+	public void verySmallTrianglesCanBeIsosceles() 
+	{
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(0.5, 0.4, 0.5);
 		assertTrue(triangle.isIsosceles());
 	}
 
 	@Test
-	public void trianglesWithAllSidesEqualAreNotScalene() {
+	public void trianglesWithAllSidesEqualAreNotScalene() 
+	{
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(4, 4, 4);
 		assertFalse(triangle.isScalene());
 	}
 
 	@Test
-	public void verySmallTrianglesCanBeScalene() {
+	public void verySmallTrianglesCanBeScalene() 
+	{
 		EvaluationService.Triangle triangle = new EvaluationService.Triangle(0.5, 0.4, 0.6);
 		assertTrue(triangle.isScalene());
 	}
@@ -129,27 +144,32 @@ public class EvaluationServiceTest {
 	 * Question 4
 	 ******************************************************************/
 	@Test
-	public void testAValuableLetter() {
+	public void testAValuableLetter() 
+	{
 		assertEquals(4, evaluationService.getScrabbleScore("f"));
 	}
 
 	@Test
-	public void testAShortValuableWord() {
+	public void testAShortValuableWord() 
+	{
 		assertEquals(12, evaluationService.getScrabbleScore("zoo"));
 	}
 
 	@Test
-	public void testAMediumWord() {
+	public void testAMediumWord() 
+	{
 		assertEquals(6, evaluationService.getScrabbleScore("street"));
 	}
 
 	@Test
-	public void testAMediumValuableWord() {
+	public void testAMediumValuableWord() 
+	{
 		assertEquals(22, evaluationService.getScrabbleScore("quirky"));
 	}
 
 	@Test
-	public void testALongMixCaseWord() {
+	public void testALongMixCaseWord() 
+	{
 		assertEquals(41, evaluationService.getScrabbleScore("OxyphenButazone"));
 	}
 
@@ -157,34 +177,39 @@ public class EvaluationServiceTest {
 	 * Question 5
 	 ******************************************************************/
 	@Test
-	public void cleansTheNumber() {
+	public void cleansTheNumber() 
+	{
 		final String expectedNumber = "2234567890";
 		final String actualNumber = evaluationService.cleanPhoneNumber("(223) 456-7890");
 		assertEquals(expectedNumber, actualNumber);
 	}
 
 	@Test
-	public void cleansNumbersWithDots() {
+	public void cleansNumbersWithDots() 
+	{
 		final String expectedNumber = "2234567890";
 		final String actualNumber = evaluationService.cleanPhoneNumber("223.456.7890");
 		assertEquals(expectedNumber, actualNumber);
 	}
 
 	@Test
-	public void cleansNumbersWithMultipleSpaces() {
+	public void cleansNumbersWithMultipleSpaces() 
+	{
 		final String expectedNumber = "2234567890";
 		final String actualNumber = evaluationService.cleanPhoneNumber("223 456   7890   ");
 		assertEquals(expectedNumber, actualNumber);
 	}
 
 	@Test
-	public void invalidWhenMoreThan11Digits() {
+	public void invalidWhenMoreThan11Digits() 
+	{
 		expectedException.expect(IllegalArgumentException.class);
 		evaluationService.cleanPhoneNumber("321234567890");
 	}
 
 	@Test
-	public void invalidWithNonNumeric() {
+	public void invalidWithNonNumeric() 
+	{
 		expectedException.expect(IllegalArgumentException.class);
 		evaluationService.cleanPhoneNumber("123-abc-7890");
 		expectedException.expect(IllegalArgumentException.class);
@@ -195,7 +220,8 @@ public class EvaluationServiceTest {
 	 * Question 6
 	 ******************************************************************/
 	@Test
-	public void countOneWord() {
+	public void countOneWord() 
+	{
 		Map<String, Integer> expectedWordCount = new HashMap<>();
 		expectedWordCount.put("word", 1);
 
@@ -204,7 +230,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void countOneOfEachWord() {
+	public void countOneOfEachWord() 
+	{
 		Map<String, Integer> expectedWordCount = new HashMap<>();
 		expectedWordCount.put("one", 1);
 		expectedWordCount.put("of", 1);
@@ -215,7 +242,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void multipleOccurrencesOfAWord() {
+	public void multipleOccurrencesOfAWord() 
+	{
 		Map<String, Integer> expectedWordCount = new HashMap<>();
 		expectedWordCount.put("one", 1);
 		expectedWordCount.put("fish", 4);
@@ -228,7 +256,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void handlesCrampedLists() {
+	public void handlesCrampedLists() 
+	{
 		Map<String, Integer> expectedWordCount = new HashMap<>();
 		expectedWordCount.put("one", 1);
 		expectedWordCount.put("two", 1);
@@ -239,7 +268,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void handlesExpandedLists() {
+	public void handlesExpandedLists() 
+	{
 		Map<String, Integer> expectedWordCount = new HashMap<>();
 		expectedWordCount.put("one", 1);
 		expectedWordCount.put("two", 1);
@@ -253,7 +283,8 @@ public class EvaluationServiceTest {
 	 * Question 7
 	 ******************************************************************/
 	@Test
-	public void findsAValueInTheMiddleOfAnArray() {
+	public void findsAValueInTheMiddleOfAnArray() 
+	{
 		List<String> sortedList = Collections.unmodifiableList(Arrays.asList("1", "3", "4", "6", "8", "9", "11"));
 
 		EvaluationService.BinarySearch<String> search = new EvaluationService.BinarySearch<>(sortedList);
@@ -262,7 +293,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void findsAValueAtTheBeginningOfAnArray() {
+	public void findsAValueAtTheBeginningOfAnArray() 
+	{
 		List<Integer> sortedList = Collections.unmodifiableList(Arrays.asList(1, 3, 4, 6, 8, 9, 11));
 
 		EvaluationService.BinarySearch<Integer> search = new EvaluationService.BinarySearch<>(sortedList);
@@ -271,7 +303,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void findsAValueAtTheEndOfAnArray() {
+	public void findsAValueAtTheEndOfAnArray() 
+	{
 		List<Integer> sortedList = Collections.unmodifiableList(Arrays.asList(1, 3, 4, 6, 8, 9, 11));
 
 		EvaluationService.BinarySearch<Integer> search = new EvaluationService.BinarySearch<>(sortedList);
@@ -280,7 +313,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void findsAValueInAnArrayOfOddLength() {
+	public void findsAValueInAnArrayOfOddLength() 
+	{
 		List<Integer> sortedListOfOddLength = Collections
 				.unmodifiableList(Arrays.asList(1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634));
 
@@ -290,7 +324,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void findsAValueInAnArrayOfEvenLength() {
+	public void findsAValueInAnArrayOfEvenLength() 
+	{
 		List<Integer> sortedListOfEvenLength = Collections
 				.unmodifiableList(Arrays.asList(1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377));
 
@@ -303,27 +338,32 @@ public class EvaluationServiceTest {
 	 * Question 8
 	 ******************************************************************/
 	@Test
-	public void testWordBeginningWithA() {
+	public void testWordBeginningWithA() 
+	{
 		assertEquals("appleay", evaluationService.toPigLatin("apple"));
 	}
 
 	@Test
-	public void testThTreatedLikeAConsonantAtTheBeginningOfAWord() {
+	public void testThTreatedLikeAConsonantAtTheBeginningOfAWord() 
+	{
 		assertEquals("erapythay", evaluationService.toPigLatin("therapy"));
 	}
 
 	@Test
-	public void testSchTreatedLikeAConsonantAtTheBeginningOfAWord() {
+	public void testSchTreatedLikeAConsonantAtTheBeginningOfAWord() 
+	{
 		assertEquals("oolschay", evaluationService.toPigLatin("school"));
 	}
 
 	@Test
-	public void testYTreatedLikeAConsonantAtTheBeginningOfAWord() {
+	public void testYTreatedLikeAConsonantAtTheBeginningOfAWord() 
+	{
 		assertEquals("ellowyay", evaluationService.toPigLatin("yellow"));
 	}
 
 	@Test
-	public void testAWholePhrase() {
+	public void testAWholePhrase() 
+	{
 		assertEquals("ickquay astfay unray", evaluationService.toPigLatin("quick fast run"));
 	}
 
@@ -331,35 +371,40 @@ public class EvaluationServiceTest {
 	 * Question 9
 	 ******************************************************************/
 	@Test
-	public void singleDigitsAreArmstrongNumbers() {
+	public void singleDigitsAreArmstrongNumbers() 
+	{
 		int input = 5;
 
 		assertTrue(evaluationService.isArmstrongNumber(input));
 	}
 
 	@Test
-	public void noTwoDigitArmstrongNumbers() {
+	public void noTwoDigitArmstrongNumbers() 
+	{
 		int input = 10;
 
 		assertFalse(evaluationService.isArmstrongNumber(input));
 	}
 
 	@Test
-	public void threeDigitNumberIsArmstrongNumber() {
+	public void threeDigitNumberIsArmstrongNumber() 
+	{
 		int input = 153;
 
 		assertTrue(evaluationService.isArmstrongNumber(input));
 	}
 
 	@Test
-	public void threeDigitNumberIsNotArmstrongNumber() {
+	public void threeDigitNumberIsNotArmstrongNumber() 
+	{
 		int input = 100;
 
 		assertFalse(evaluationService.isArmstrongNumber(input));
 	}
 
 	@Test
-	public void fourDigitNumberIsArmstrongNumber() {
+	public void fourDigitNumberIsArmstrongNumber() 
+	{
 		int input = 9474;
 
 		assertTrue(evaluationService.isArmstrongNumber(input));
@@ -370,27 +415,32 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 
 	@Test
-	public void testPrimeNumber() {
+	public void testPrimeNumber() 
+	{
 		assertEquals(Collections.singletonList(2L), evaluationService.calculatePrimeFactorsOf(2L));
 	}
 
 	@Test
-	public void testSquareOfAPrime() {
+	public void testSquareOfAPrime() 
+	{
 		assertEquals(Arrays.asList(3L, 3L), evaluationService.calculatePrimeFactorsOf(9L));
 	}
 
 	@Test
-	public void testCubeOfAPrime() {
+	public void testCubeOfAPrime() 
+	{
 		assertEquals(Arrays.asList(2L, 2L, 2L), evaluationService.calculatePrimeFactorsOf(8L));
 	}
 
 	@Test
-	public void testProductOfPrimesAndNonPrimes() {
+	public void testProductOfPrimesAndNonPrimes() 
+	{
 		assertEquals(Arrays.asList(2L, 2L, 3L), evaluationService.calculatePrimeFactorsOf(12L));
 	}
 
 	@Test
-	public void testProductOfPrimes() {
+	public void testProductOfPrimes() 
+	{
 		assertEquals(Arrays.asList(5L, 17L, 23L, 461L), evaluationService.calculatePrimeFactorsOf(901255L));
 	}
 
@@ -399,31 +449,36 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 
 	@Test
-	public void rotateSingleCharacterWithWrapAround() {
+	public void rotateSingleCharacterWithWrapAround() 
+	{
 		EvaluationService.RotationalCipher rotationalCipher = new EvaluationService.RotationalCipher(13);
 		assertEquals("a", rotationalCipher.rotate("n"));
 	}
 
 	@Test
-	public void rotateCapitalLetters() {
+	public void rotateCapitalLetters() 
+	{
 		EvaluationService.RotationalCipher rotationalCipher = new EvaluationService.RotationalCipher(5);
 		assertEquals("TRL", rotationalCipher.rotate("OMG"));
 	}
 
 	@Test
-	public void rotateNumbers() {
+	public void rotateNumbers() 
+	{
 		EvaluationService.RotationalCipher rotationalCipher = new EvaluationService.RotationalCipher(4);
 		assertEquals("Xiwxmrk 1 2 3 xiwxmrk", rotationalCipher.rotate("Testing 1 2 3 testing"));
 	}
 
 	@Test
-	public void rotatePunctuation() {
+	public void rotatePunctuation() 
+	{
 		EvaluationService.RotationalCipher rotationalCipher = new EvaluationService.RotationalCipher(21);
 		assertEquals("Gzo'n zvo, Bmviyhv!", rotationalCipher.rotate("Let's eat, Grandma!"));
 	}
 
 	@Test
-	public void rotateAllLetters() {
+	public void rotateAllLetters() 
+	{
 		EvaluationService.RotationalCipher rotationalCipher = new EvaluationService.RotationalCipher(13);
 		assertEquals("The quick brown fox jumps over the lazy dog.",
 				rotationalCipher.rotate("Gur dhvpx oebja sbk whzcf bire gur ynml qbt."));
@@ -433,27 +488,32 @@ public class EvaluationServiceTest {
 	 * Question 12
 	 ******************************************************************/
 	@Test
-	public void testFirstPrime() {
+	public void testFirstPrime() 
+	{
 		assertThat(evaluationService.calculateNthPrime(1), is(2));
 	}
 
 	@Test
-	public void testSecondPrime() {
+	public void testSecondPrime() 
+	{
 		assertThat(evaluationService.calculateNthPrime(2), is(3));
 	}
 
 	@Test
-	public void testSixthPrime() {
+	public void testSixthPrime() 
+	{
 		assertThat(evaluationService.calculateNthPrime(6), is(13));
 	}
 
 	@Test
-	public void testBigPrime() {
+	public void testBigPrime() 
+	{
 		assertThat(evaluationService.calculateNthPrime(10001), is(104743));
 	}
 
 	@Test
-	public void testUndefinedPrime() {
+	public void testUndefinedPrime() 
+	{
 		expectedException.expect(IllegalArgumentException.class);
 		evaluationService.calculateNthPrime(0);
 	}
@@ -463,32 +523,38 @@ public class EvaluationServiceTest {
 	 ******************************************************************/
 
 	@Test
-	public void testEncodeYes() {
+	public void testEncodeYes() 
+	{
 		assertEquals("bvh", EvaluationService.AtbashCipher.encode("yes"));
 	}
 
 	@Test
-	public void testEncodeOmgInCapital() {
+	public void testEncodeOmgInCapital() 
+	{
 		assertEquals("lnt", EvaluationService.AtbashCipher.encode("OMG"));
 	}
 
 	@Test
-	public void testEncodeMindBlowingly() {
+	public void testEncodeMindBlowingly() 
+	{
 		assertEquals("nrmwy oldrm tob", EvaluationService.AtbashCipher.encode("mindblowingly"));
 	}
 
 	@Test
-	public void testEncodeNumbers() {
+	public void testEncodeNumbers() 
+	{
 		assertEquals("gvhgr mt123 gvhgr mt", EvaluationService.AtbashCipher.encode("Testing,1 2 3, testing."));
 	}
 
 	@Test
-	public void testEncodeDeepThought() {
+	public void testEncodeDeepThought() 
+	{
 		assertEquals("gifgs rhurx grlm", EvaluationService.AtbashCipher.encode("Truth is fiction."));
 	}
 
 	@Test
-	public void testEncodeAllTheLetters() {
+	public void testEncodeAllTheLetters() 
+	{
 		assertEquals("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt",
 				EvaluationService.AtbashCipher.encode("The quick brown fox jumps over the lazy dog."));
 	}
@@ -497,23 +563,27 @@ public class EvaluationServiceTest {
 	 * Question 14
 	 ******************************************************************/
 	@Test
-	public void testDecodeExercism() {
+	public void testDecodeExercism() 
+	{
 		assertEquals("exercism", EvaluationService.AtbashCipher.decode("vcvix rhn"));
 	}
 
 	@Test
-	public void testDecodeASentence() {
+	public void testDecodeASentence() 
+	{
 		assertEquals("anobstacleisoftenasteppingstone",
 				EvaluationService.AtbashCipher.decode("zmlyh gzxov rhlug vmzhg vkkrm thglm v"));
 	}
 
 	@Test
-	public void testDecodeNumbers() {
+	public void testDecodeNumbers() 
+	{
 		assertEquals("testing123testing", EvaluationService.AtbashCipher.decode("gvhgr mt123 gvhgr mt"));
 	}
 
 	@Test
-	public void testDecodeAllTheLetters() {
+	public void testDecodeAllTheLetters() 
+	{
 		assertEquals("thequickbrownfoxjumpsoverthelazydog",
 				EvaluationService.AtbashCipher.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"));
 	}
@@ -522,27 +592,32 @@ public class EvaluationServiceTest {
 	 * Question 15
 	 ******************************************************************/
 	@Test
-	public void validIsbnNumber() {
+	public void validIsbnNumber() 
+	{
 		assertTrue(evaluationService.isValidIsbn("3-598-21508-8"));
 	}
 
 	@Test
-	public void invalidIsbnCheckDigit() {
+	public void invalidIsbnCheckDigit() 
+	{
 		assertFalse(evaluationService.isValidIsbn("3-598-21508-9"));
 	}
 
 	@Test
-	public void validIsbnNumberWithCheckDigitOfTen() {
+	public void validIsbnNumberWithCheckDigitOfTen() 
+	{
 		assertTrue(evaluationService.isValidIsbn("3-598-21507-X"));
 	}
 
 	@Test
-	public void checkDigitIsACharacterOtherThanX() {
+	public void checkDigitIsACharacterOtherThanX() 
+	{
 		assertFalse(evaluationService.isValidIsbn("3-598-21507-A"));
 	}
 
 	@Test
-	public void invalidCharacterInIsbn() {
+	public void invalidCharacterInIsbn() 
+	{
 		assertFalse(evaluationService.isValidIsbn("3-598-2K507-0"));
 	}
 
@@ -550,27 +625,32 @@ public class EvaluationServiceTest {
 	 * Question 16
 	 ******************************************************************/
 	@Test
-	public void emptySentenceIsNotPangram() {
+	public void emptySentenceIsNotPangram() 
+	{
 		assertFalse(evaluationService.isPangram(""));
 	}
 
 	@Test
-	public void recognizesPerfectLowerCasePangram() {
+	public void recognizesPerfectLowerCasePangram() 
+	{
 		assertTrue(evaluationService.isPangram("abcdefghijklmnopqrstuvwxyz"));
 	}
 
 	@Test
-	public void pangramWithOnlyLowerCaseLettersIsRecognizedAsPangram() {
+	public void pangramWithOnlyLowerCaseLettersIsRecognizedAsPangram() 
+	{
 		assertTrue(evaluationService.isPangram("the quick brown fox jumps over the lazy dog"));
 	}
 
 	@Test
-	public void phraseMissingCharacterXIsNotPangram() {
+	public void phraseMissingCharacterXIsNotPangram() 
+	{
 		assertFalse(evaluationService.isPangram("a quick movement of the enemy will jeopardize five gunboats"));
 	}
 
 	@Test
-	public void phraseMissingAnotherCharacterIsNotPangram() {
+	public void phraseMissingAnotherCharacterIsNotPangram() 
+	{
 		assertFalse(evaluationService.isPangram("five boxing wizards jump quickly at it"));
 	}
 
@@ -578,31 +658,36 @@ public class EvaluationServiceTest {
 	 * Question 17
 	 ******************************************************************/
 	@Test
-	public void modernTime() {
+	public void modernTime() 
+	{
 		assertEquals(LocalDateTime.of(2043, Month.JANUARY, 1, 1, 46, 40),
 				evaluationService.getGigasecondDate(LocalDate.of(2011, Month.APRIL, 25)));
 	}
 
 	@Test
-	public void afterEpochTime() {
+	public void afterEpochTime() 
+	{
 		assertEquals(LocalDateTime.of(2009, Month.FEBRUARY, 19, 1, 46, 40),
 				evaluationService.getGigasecondDate(LocalDate.of(1977, Month.JUNE, 13)));
 	}
 
 	@Test
-	public void beforeEpochTime() {
+	public void beforeEpochTime() 
+	{
 		assertEquals(LocalDateTime.of(1991, Month.MARCH, 27, 1, 46, 40),
 				evaluationService.getGigasecondDate(LocalDate.of(1959, Month.JULY, 19)));
 	}
 
 	@Test
-	public void withFullTimeSpecified() {
+	public void withFullTimeSpecified() 
+	{
 		assertEquals(LocalDateTime.of(2046, Month.OCTOBER, 2, 23, 46, 40),
 				evaluationService.getGigasecondDate(LocalDateTime.of(2015, Month.JANUARY, 24, 22, 0, 0)));
 	}
 
 	@Test
-	public void withFullTimeSpecifiedAndDayRollover() {
+	public void withFullTimeSpecifiedAndDayRollover() 
+	{
 		assertEquals(LocalDateTime.of(2046, Month.OCTOBER, 3, 1, 46, 39),
 				evaluationService.getGigasecondDate(LocalDateTime.of(2015, Month.JANUARY, 24, 23, 59, 59)));
 	}
@@ -611,7 +696,8 @@ public class EvaluationServiceTest {
 	 * Question 18
 	 ******************************************************************/
 	@Test
-	public void testSumOfMultiplesOf4and6UpToFifteen() {
+	public void testSumOfMultiplesOf4and6UpToFifteen() 
+	{
 
 		int[] set = { 4, 6 };
 		int output = evaluationService.getSumOfMultiples(15, set);
@@ -620,7 +706,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void testSumOfMultiplesOf5and6and8UpToOneHundredFifty() {
+	public void testSumOfMultiplesOf5and6and8UpToOneHundredFifty() 
+	{
 
 		int[] set = { 5, 6, 8 };
 		int output = evaluationService.getSumOfMultiples(150, set);
@@ -629,7 +716,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void testSumOfMultiplesOf5and25UpToFiftyOne() {
+	public void testSumOfMultiplesOf5and25UpToFiftyOne() 
+	{
 
 		int[] set = { 5, 25 };
 		int output = evaluationService.getSumOfMultiples(51, set);
@@ -638,7 +726,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void testSumOfMultiplesOf43and47UpToTenThousand() {
+	public void testSumOfMultiplesOf43and47UpToTenThousand() 
+	{
 
 		int[] set = { 43, 47 };
 		int output = evaluationService.getSumOfMultiples(10000, set);
@@ -647,7 +736,8 @@ public class EvaluationServiceTest {
 	}
 
 	@Test
-	public void testSumOfMultiplesOfOneUpToOneHundred() {
+	public void testSumOfMultiplesOfOneUpToOneHundred() 
+	{
 
 		int[] set = { 1 };
 		int output = evaluationService.getSumOfMultiples(100, set);
@@ -659,27 +749,32 @@ public class EvaluationServiceTest {
 	 * Question 19
 	 ******************************************************************/
 	@Test
-	public void testThatAValidCanadianSocialInsuranceNumberIsIdentifiedAsValidV1() {
+	public void testThatAValidCanadianSocialInsuranceNumberIsIdentifiedAsValidV1() 
+	{
 		assertTrue(evaluationService.isLuhnValid("046 454 286"));
 	}
 
 	@Test
-	public void testThatAnInvalidCanadianSocialInsuranceNumberIsIdentifiedAsInvalid() {
+	public void testThatAnInvalidCanadianSocialInsuranceNumberIsIdentifiedAsInvalid() 
+	{
 		assertFalse(evaluationService.isLuhnValid("046 454 287"));
 	}
 
 	@Test
-	public void testThatAnInvalidCreditCardIsIdentifiedAsInvalid() {
+	public void testThatAnInvalidCreditCardIsIdentifiedAsInvalid() 
+	{
 		assertFalse(evaluationService.isLuhnValid("8273 1232 7352 0569"));
 	}
 
 	@Test
-	public void testThatAddingANonDigitCharacterToAValidStringInvalidatesTheString() {
+	public void testThatAddingANonDigitCharacterToAValidStringInvalidatesTheString() 
+	{
 		assertFalse(evaluationService.isLuhnValid("046a 454 286"));
 	}
 
 	@Test
-	public void testThatStringContainingPunctuationIsInvalid() {
+	public void testThatStringContainingPunctuationIsInvalid() 
+	{
 		assertFalse(evaluationService.isLuhnValid("055-444-285"));
 	}
 
@@ -687,27 +782,32 @@ public class EvaluationServiceTest {
 	 * Question 20
 	 ******************************************************************/
 	@Test
-	public void testSingleAddition1() {
+	public void testSingleAddition() 
+	{
 		assertEquals(2, evaluationService.solveWordProblem("What is 1 plus 1?"));
 	}
 
 	@Test
-	public void testSingleAdditionWithNegativeNumbers() {
+	public void testSingleAdditionWithNegativeNumbers() 
+	{
 		assertEquals(-11, evaluationService.solveWordProblem("What is -1 plus -10?"));
 	}
 
 	@Test
-	public void testSingleSubtraction() {
+	public void testSingleSubtraction() 
+	{
 		assertEquals(16, evaluationService.solveWordProblem("What is 4 minus -12?"));
 	}
 
 	@Test
-	public void testSingleMultiplication() {
+	public void testSingleMultiplication() 
+	{
 		assertEquals(-75, evaluationService.solveWordProblem("What is -3 multiplied by 25?"));
 	}
 
 	@Test
-	public void testSingleDivision() {
+	public void testSingleDivision() 
+	{
 		assertEquals(-11, evaluationService.solveWordProblem("What is 33 divided by -3?"));
 	}
 
